@@ -15,8 +15,6 @@
                     </a>
                 </li>
 
-               
-
 
                 <li class="menu-title">Pages</li>
 
@@ -26,23 +24,23 @@
                         <span>Categorías</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Listar Categorías</a></li>
-                        <li><a href="">Agregar Categoría</a></li>
+                        <li><a href="{{ route('all.category') }}">Listar Categorías</a></li>
+                        <li><a href="{{ route('add.category') }}">Agregar Categoría</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
-                        <span>Productos</span>
+                        <span>Producto</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Litar Productos</a></li>
-                        <li><a href="">Agregar Productos</a></li>
+                        <li><a href="#">Listar Productos</a></li>
+                        <li><a href="#">Agregar Productos</a></li>
                     </ul>
                 </li>
 
-                
+  
 
             </ul>
         </div>
