@@ -21,6 +21,17 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
+                        <span>Proveedores</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('all.provider') }}">Listar Proveedores</a></li>
+                        <li><a href="{{ route('add.provider') }}">Agregar Proveedores</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
                         <span>Categorías</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

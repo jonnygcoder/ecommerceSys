@@ -46,4 +46,52 @@ class CategoryController extends Controller
         return redirect()->route('all.category')->with($notifications);
     }
 
+    // GET
+    public function editCategory($id){
+
+        $category = Categoria::findOrFail($id);
+        return view('admin.category.category_edit',compact('category'));
+
+    }
+
+
+    // POST
+    public function updateCategory (Request $request,$id){
+        
+        //dd($id);
+        $request->validate(
+            ['category' => 'required',],
+            ['category.required'   => 'El nombre es requerido para la categoría!',]
+        
+        );
+
+        Categoria::findOrFail($id)->update([
+            'nombre' => $request->category,
+        ]);
+
+        // Notificación de alerta para la vista
+        $notifications = [
+            'message'    => 'La categoría ha sido actualizada correctamente',
+            'alert-type' => 'success'
+        ];
+        
+        return redirect()->route('all.category')->with($notifications);
+    }
+
+
+
+    public function deleteCategory(Request $request, $id){
+
+        Categoria::findOrFail($id)->delete();
+
+        // Notificación de alerta para la vista
+        $notifications = [
+            'message'    => 'La categoría ha sido eliminada correctamente',
+            'alert-type' => 'success'
+        ];
+        
+        return redirect()->back()->with($notifications);
+
+    }
+
 }
