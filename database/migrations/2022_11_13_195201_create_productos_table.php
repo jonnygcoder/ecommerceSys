@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('unidad_med')->nullable();
             $table->integer('id_categoria')->nullable();
             $table->integer('id_proveedor')->nullable();
+            $table->string('imagen')->nullable();
             $table->integer('estado')->nullable()->default(0);
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 
 
@@ -55,12 +56,33 @@ Route::controller(ProveedorController::class)->group(function(){
     Route::get('/add/provider','addProvider')->name('add.provider');
     Route::post('/store/provider','storeProvider')->name('store.provider');
 
-    /*Route::get('/edit/provider/{id}','editProvider')->name('edit.provider');
+    Route::get('/edit/provider/{id}','editProvider')->name('edit.provider');
     Route::post('/update/provider/{id}','updateProvider')->name('update.provider');
 
-    Route::get('/delete/provider/{id}','deleteProvider')->name('delete.provider');*/
+    Route::get('/delete/provider/{id}','deleteProvider')->name('delete.provider');
     
 });
+
+
+// Productos
+Route::controller(ProductoController::class)->group(function(){
+    Route::get('/all/product','allProduct')->name('all.product');
+    
+    Route::get('/add/product','addProduct')->name('add.product');
+    Route::post('/store/product','storeProduct')->name('store.product');
+
+    /*Route::get('/edit/product/{id}','editProduct')->name('edit.product');
+    Route::post('/update/product/{id}','updateProduct')->name('update.product');
+
+    */
+
+    Route::get('/delete/product/{id}','deleteProduct')->name('delete.product');
+    
+});
+
+
+// Órdenes de compra
+
 
 
 require __DIR__.'/auth.php';

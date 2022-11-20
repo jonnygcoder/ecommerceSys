@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    jonnygcoder <i class="mdi mdi-heart text-danger"></i> All Rrights Reserved
+                    jonnygcoder All Rrights Reserved
                 </div>
             </div>
         </div>
