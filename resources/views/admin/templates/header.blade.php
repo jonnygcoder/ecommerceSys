@@ -7,8 +7,8 @@
                     <span class="logo-sm">
                         <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
                     </span>
-                    <span class="logo-lg">
-                        <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-light" height="20"> 
+                    <span class="logo-lg text-light">
+                       MÁS POR MENOS
                     </span>
                 </a>
             </div>

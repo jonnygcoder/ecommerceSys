@@ -16,9 +16,7 @@ class ProductoController extends Controller
     // GET
     public function allProduct() {
         $dataProduct = Producto::all();
-        
         return view('admin.product.product_all',compact('dataProduct'));
-
     }
 
     public function addProduct(){
@@ -31,13 +29,17 @@ class ProductoController extends Controller
 
     public function storeProduct(Request $request){
 
-        //dd($request);
-        
-        /*$request->validate(
-            ['post_title' => 'required',],
-            ['post_title.required'   => 'El nombre es requerido para el post del Blog!',]
-        
-        );*/
+
+        $request->validate(
+            [
+                'producto'    => 'required',
+                'precio_uni'  => 'required'
+            ],
+            $message = [
+                'producto'    => 'El nombre del producto es requerido!',
+                'precio_uni'  => 'El precio del producto es requerido!',
+            ]
+        );
 
         $img = $request->file('image');
         $imgName = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
@@ -68,6 +70,73 @@ class ProductoController extends Controller
 
     }
 
+
+    public function editProduct($id){
+
+        $product = Producto::findOrFail($id);
+        $dataCategories = Categoria::orderBy('id','ASC')->get();
+        $dataProvider = Proveedor::orderBy('id','ASC')->get();
+        return view('admin.product.product_edit',compact('product','dataCategories','dataProvider'));
+    }
+
+
+    public function updateProduct(Request $request){
+
+        $request->validate(
+            [
+                'producto'    => 'required',
+                'precio_uni'  => 'required'
+            ],
+            $message = [
+                'producto'    => 'El nombre del producto es requerido!',
+                'precio_uni'  => 'El precio del producto es requerido!',
+            ]
+        );
+
+        $idProduct = $request->id;
+        
+        if($request->file('image')){
+
+            $imgProduct = $request->file('image');
+            $imgName = hexdec(uniqid()).'.'.$imgProduct->getClientOriginalExtension();
+            $imgUrl = 'upload/product/'.$imgName;
+
+            Image::make($imgProduct)->resize(430,327)->save($imgUrl);
+            
+            Producto::findOrFail($idProduct)->update([
+                'nombre'        => $request->producto,
+                'descripcion'   => $request->descripcion,
+                'precio_uni'    => $request->precio_uni,
+                'stock_ini'     => $request->stock_ini,
+                'stock_act'     => $request->stock_act,
+                'unidad_med'    => $request->unidad_med,
+                'id_categoria'  => $request->categoria,
+                'id_proveedor'  => $request->proveedor,
+                'imagen'        => $imgUrl,
+            ]);
+
+        }else{
+
+            Producto::findOrFail($idProduct)->update([
+                'nombre'        => $request->producto,
+                'descripcion'   => $request->descripcion,
+                'precio_uni'    => $request->precio_uni,
+                'stock_ini'     => $request->stock_ini,
+                'stock_act'     => $request->stock_act,
+                'unidad_med'    => $request->unidad_med,
+                'id_categoria'  => $request->categoria,
+                'id_proveedor'  => $request->proveedor
+            ]);
+        }
+
+        // Notificación de alerta para la vista
+        $notifications = [
+            'message'    => 'El producto ha sido actualizado correctamente',
+            'alert-type' => 'success'
+        ];
+        
+        return redirect()->route('all.product')->with($notifications);
+    }
 
 
     public function deleteProduct($id){

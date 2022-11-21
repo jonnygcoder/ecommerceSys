@@ -59,18 +59,11 @@
                         <span>Órdenes de Compra</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Listar Órdenes</a></li>
-                    </ul>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Órdenes Aprobadas</a></li>
-                    </ul>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Órdenes Canceladas</a></li>
+                        <li><a href="{{ route('all.orderBuyPen') }}">Órdenes Pendientes</a></li>
+                        <li><a href="{{ route('all.orderBuyApro') }}">Órdenes Aprobadas</a></li>
+                        <li><a href="{{  route('all.orderBuyCan') }}">Órdenes Canceladas</a></li>
                     </ul>
                 </li>
-
-  
-
             </ul>
         </div>
         <!-- Sidebar -->

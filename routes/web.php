@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrdenCompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
-
+use App\Models\OrdenCompra;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,10 +72,8 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('/add/product','addProduct')->name('add.product');
     Route::post('/store/product','storeProduct')->name('store.product');
 
-    /*Route::get('/edit/product/{id}','editProduct')->name('edit.product');
+    Route::get('/edit/product/{id}','editProduct')->name('edit.product');
     Route::post('/update/product/{id}','updateProduct')->name('update.product');
-
-    */
 
     Route::get('/delete/product/{id}','deleteProduct')->name('delete.product');
     
@@ -82,7 +81,12 @@ Route::controller(ProductoController::class)->group(function(){
 
 
 // Órdenes de compra
+Route::controller(OrdenCompraController::class)->group(function(){
+    Route::get('/all/orderBuyPen','allOrderBuyPen')->name('all.orderBuyPen');
+    Route::get('/all/orderBuyApro','allOrderBuyApro')->name('all.orderBuyApro');
+    Route::get('/all/orderBuyCan','allOrderBuyCan')->name('all.orderBuyCan');
 
+});
 
 
 require __DIR__.'/auth.php';
