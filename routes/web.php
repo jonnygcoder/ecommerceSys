@@ -86,6 +86,9 @@ Route::controller(OrdenCompraController::class)->group(function(){
     Route::get('/all/orderBuyApro','allOrderBuyApro')->name('all.orderBuyApro');
     Route::get('/all/orderBuyCan','allOrderBuyCan')->name('all.orderBuyCan');
 
+    Route::get('/update/orderBuyPen/{id}','updateOrderBuyPen')->name('update.order');
+    Route::get('/cancel/orderBuyPen/{id}','cancelOrderBuyPen')->name('cancel.order');
+
 });
 
 

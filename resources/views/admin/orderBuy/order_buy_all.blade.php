@@ -72,8 +72,8 @@
                                     <td><div class="font-size-13"><i class="ri-checkbox-blank-circle-fill font-size-15 text-{{$estiloMsg}} align-middle me-2"></i> {{$estado}} </div></td>
                                     
                                     <td>
-                                        <a href="#" class="btn btn-info sm {{$estiloBtn}}" title="Aprobar" id="aprobarOrden">  <i class="fas fa-edit"></i> </a>
-                                        <a href="#" class="btn btn-danger sm {{$estiloBtn}}" title="Cancelar" id="cancelarOrden">  <i class="fas fa-trash-alt"></i> </a>
+                                        <a href=" {{ route('update.order',$item->id) }} " class="btn btn-info sm {{$estiloBtn}}" title="Aprobar" id="aprobarOrden">  <i class="fas fa-edit"></i> </a>
+                                        <a href=" {{ route('cancel.order',$item->id) }} " class="btn btn-danger sm {{$estiloBtn}}" title="Cancelar" id="cancelarOrden">  <i class="fas fa-trash-alt"></i> </a>
                                     </td>
 
                                 </tr>
