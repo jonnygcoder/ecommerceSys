@@ -57,14 +57,17 @@
                                             $estado = 'PENDIENTE';
                                             $estiloMsg = 'warning';
                                             $estiloBtn = '';
+                                            $estiloWSP = 'hidden';
                                         }else if($item->estado == 1){
                                             $estado = 'APROBADO';
                                             $estiloMsg = 'success';
-                                            $estiloBtn = 'disabled';
+                                            $estiloBtn = 'hidden';
+                                            $estiloWSP = '';
                                         }else {
                                             $estado = 'CANCELADO';
                                             $estiloMsg = 'danger';
-                                            $estiloBtn = 'disabled';
+                                            $estiloBtn = 'hidden';
+                                            $estiloWSP = 'hidden';
                                         }
                                     @endphp
 
@@ -72,8 +75,10 @@
                                     <td><div class="font-size-13"><i class="ri-checkbox-blank-circle-fill font-size-15 text-{{$estiloMsg}} align-middle me-2"></i> {{$estado}} </div></td>
                                     
                                     <td>
-                                        <a href=" {{ route('update.order',$item->id) }} " class="btn btn-info sm {{$estiloBtn}}" title="Aprobar" id="aprobarOrden">  <i class="fas fa-edit"></i> </a>
-                                        <a href=" {{ route('cancel.order',$item->id) }} " class="btn btn-danger sm {{$estiloBtn}}" title="Cancelar" id="cancelarOrden">  <i class="fas fa-trash-alt"></i> </a>
+                                        <a {{$estiloBtn}} href=" {{ route('update.order',$item->id) }} " class="btn btn-info sm " title="Aprobar" id="aprobarOrden">  <i class="fas fa-edit"></i> </a>
+                                        <a {{$estiloBtn}} href=" {{ route('cancel.order',$item->id) }} " class="btn btn-danger sm " title="Cancelar" id="cancelarOrden">  <i class="fas fa-trash-alt"></i> </a>
+                                        <a  {{$estiloWSP}} href=" {{ route('sendMessageWsP') }} " class="btn btn-success sm " title="WSP" id="wsp">  <i class="fab fa-whatsapp"></i> </a>
+                                        
                                     </td>
 
                                 </tr>

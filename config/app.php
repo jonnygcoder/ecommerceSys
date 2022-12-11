@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         Intervention\Image\ImageServiceProvider::class,
+        //Sdkconsultoria\WhatsappCloudApi\Waba\SendMessage::class,
         /*
          * Application Service Providers...
          */

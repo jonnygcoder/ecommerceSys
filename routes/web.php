@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\OrdenCompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
@@ -90,6 +91,17 @@ Route::controller(OrdenCompraController::class)->group(function(){
     Route::get('/cancel/orderBuyPen/{id}','cancelOrderBuyPen')->name('cancel.order');
 
 });
+
+
+
+Route::controller(MessengerController::class)->group(function(){
+    Route::get('/sendMessageWsP','sendMessageWsp')->name('sendMessageWsP');
+});
+
+
+//Route::get('messenger/{phone}', 'App\Http\Controllers\MessengerController@show');
+//Route::get('messenger/{phone}', 'App\Http\Controllers\MessengerController@show');
+
 
 
 require __DIR__.'/auth.php';

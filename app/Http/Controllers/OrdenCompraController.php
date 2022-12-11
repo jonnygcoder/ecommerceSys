@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\OrdenCompra;
 use App\Models\OrdenCompraDetalle;
 use App\Models\Producto;
+use App\Controller\MessengerController;
+use App\Http\Controllers\MessengerController as ControllersMessengerController;
 use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
@@ -12,6 +14,9 @@ class OrdenCompraController extends Controller
     // GET
     public function allOrderBuyPen() {
         $dataOrderBuy = OrdenCompra::where('estado',0)->get();
+        //$data = ControllersMessengerController::sendMessageWsp2();
+        //dd($data);
+
         return view('admin.orderBuy.order_buy_all',compact('dataOrderBuy'));
     }
 

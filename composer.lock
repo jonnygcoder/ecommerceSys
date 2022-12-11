@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2dcfde0300a273e4ef4383381632f2cb",
+    "content-hash": "8422685e6dac57032ce7b684002a4334",
     "packages": [
         {
             "name": "brick/math",
@@ -2917,6 +2917,72 @@
                 }
             ],
             "time": "2022-11-05T23:03:38+00:00"
+        },
+        {
+            "name": "sdkconsultoria/whatsapp-cloud-api",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sdkconsultoria/whatsapp-cloud-api.git",
+                "reference": "abeceaf71e426432a05507f237a9ad730bce1319"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sdkconsultoria/whatsapp-cloud-api/zipball/abeceaf71e426432a05507f237a9ad730bce1319",
+                "reference": "abeceaf71e426432a05507f237a9ad730bce1319",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.4",
+                "laravel/pint": "^0.2.1",
+                "orchestra/testbench": "^7.6"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sdkconsultoria\\WhatsappCloudApi\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "WhatsappCloudApi": "Sdkconsultoria\\WhatsappCloudApi\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "Sdkconsultoria\\WhatsappCloudApi\\": "src/",
+                    "Sdkconsultoria\\WhatsappCloudApi\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Camilo Antonio Rodríguez Cruz",
+                    "email": "camilo@sdkconsultoria.com",
+                    "homepage": "https://sdkconsultoria.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Funciones basicas y auxiliares, para generar una página web rápidamente",
+            "keywords": [
+                "Whatsapp cloud Api",
+                "laravel",
+                "package",
+                "whatsapp"
+            ],
+            "support": {
+                "issues": "https://github.com/sdkconsultoria/whatsapp-cloud-api/issues",
+                "source": "https://github.com/sdkconsultoria/whatsapp-cloud-api/tree/develop"
+            },
+            "time": "2022-09-14T23:01:04+00:00"
         },
         {
             "name": "symfony/console",
@@ -7958,7 +8024,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sdkconsultoria/whatsapp-cloud-api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
