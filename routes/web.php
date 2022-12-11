@@ -95,7 +95,7 @@ Route::controller(OrdenCompraController::class)->group(function(){
 
 
 Route::controller(MessengerController::class)->group(function(){
-    Route::get('/sendMessageWsP','sendMessageWsp')->name('sendMessageWsP');
+    Route::get('/sendMessageWsp','sendMessageWsp')->name('sendMessageWsP');
 });
 
 
