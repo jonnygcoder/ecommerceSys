@@ -78,8 +78,11 @@ class MessengerController extends Controller
             $keyTocken = 'jonnygcoderWhTk2022**';
             $query = $request->query();
             //dd($query);
+
+            $challenge = $query['hub_challenge'];
+            
             //$mode = $query['hub_mode'];
-            $token = $query['hub_verify_token'];
+            /*$token = $query['hub_verify_token'];
             $challenge = $query['hub_challenge'];
 
             if($token){
@@ -89,9 +92,11 @@ class MessengerController extends Controller
                     ],200);
                 }
 
-            }
+            }*/
 
-            throw new Exception('Respuesta invalida');
+            return response()->json($challenge,200)->header('content-Type','text/plain');
+
+            //throw new Exception('Respuesta invalida');
 
         } catch (\Throwable $th) {
             return response()->json([
