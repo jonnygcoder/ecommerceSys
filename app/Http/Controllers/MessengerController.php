@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Sdkconsultoria\WhatsappCloudApi\Waba\SendMessage;
+
+use function PHPUnit\Framework\throwException;
 
 class MessengerController extends Controller
 {
@@ -55,14 +58,44 @@ class MessengerController extends Controller
             dd($dataMsg);
            
             return response()->json([
-                'succeess' => true,
+                'success' => true,
                 'data' => $dataMsg
             ],200);
 
         } catch (\Throwable $th) {
 
             return response()->json([
-                'succeess' => true,
+                'success' => true,
+                'data' => $th->getMessage()
+            ],500);
+        }
+    }
+
+    public function verifyWebhook(Request $request){
+
+        try {
+           
+            $keyTocken = 'jonnygcoderWhTk2022**';
+            $query = $request->query();
+
+            $mode = $query['hub_mode'];
+            $token = $query['hub_verify_token'];
+            $challenge = $query['hub_challenge'];
+
+            if( $mode && $token){
+                if($mode === 'subscribe' && $token == $keyTocken){
+                    return response()->json([
+                        'success' => true,
+                    ],200);
+                }
+
+            }
+
+            throw new Exception('Respuesta invalida');
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => true,
                 'data' => $th->getMessage()
             ],500);
         }

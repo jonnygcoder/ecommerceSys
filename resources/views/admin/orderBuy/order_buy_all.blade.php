@@ -77,7 +77,7 @@
                                     <td>
                                         <a {{$estiloBtn}} href=" {{ route('update.order',$item->id) }} " class="btn btn-info sm " title="Aprobar" id="aprobarOrden">  <i class="fas fa-edit"></i> </a>
                                         <a {{$estiloBtn}} href=" {{ route('cancel.order',$item->id) }} " class="btn btn-danger sm " title="Cancelar" id="cancelarOrden">  <i class="fas fa-trash-alt"></i> </a>
-                                        <a  {{$estiloWSP}} href=" {{ route('sendMessageWsP') }} " class="btn btn-success sm " title="WSP" id="wsp">  <i class="fab fa-whatsapp"></i> </a>
+                                        <a  {{$estiloWSP}} href=" {{ route('sendMessageWsp') }} " class="btn btn-success sm " title="WSP" id="wsp">  <i class="fab fa-whatsapp"></i> </a>
                                         
                                     </td>
 
