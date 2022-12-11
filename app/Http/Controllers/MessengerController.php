@@ -75,24 +75,22 @@ class MessengerController extends Controller
 
         try {
            
-            $keyTocken = 'jonnygcoderWhTk2022**';
+            $keyToken = 'jonnygcoderWhTk2022**';
             $query = $request->query();
             //dd($query);
 
-            $challenge = $query['hub_challenge'];
-            
-            //$mode = $query['hub_mode'];
-            /*$token = $query['hub_verify_token'];
+            $mode = $query['hub_mode'];
+            $token = $query['hub_verify_token'];
             $challenge = $query['hub_challenge'];
 
             if($token){
-                if($mode === 'subscribe' && $token == $keyTocken){
+                if($mode === 'subscribe' && $token == $keyToken){
                     return response()->json([
                         'success' => true,
                     ],200);
                 }
 
-            }*/
+            }
 
             return response()->json($challenge,200)->header('content-Type','text/plain');
 
