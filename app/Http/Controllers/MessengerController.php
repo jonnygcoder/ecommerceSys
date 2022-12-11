@@ -37,11 +37,11 @@ class MessengerController extends Controller
             $link ='https://graph.facebook.com/';
             $version ='v15.0/';
             $phoneId ='109349012021556/';
-            $token = 'EAAMZANnayh7wBAHr2sZCFn1P1ZCIjdu9p7qmvdJ7gZBPXytZCrJkwEZBPrWsKTZA23j5klmoMRObs6uLckK9nIm1EIDQ6KoXnRCREF0IJrZASMAGZBFyUoje1jXoZBnyQvG036A9RyvTWnfGisWCMIYz1Q9ZBPZBB40ashvto1osufTmhkqAwdBW5hBWAIIdFdDQjHjBgp7EZC2hxrgZDZD';
+            $token = 'EAAMZANnayh7wBALWSuN71lmThW0zKu2eXWnpwxrGSZBEuJRikr9uipb2ZCrQ3tkVejURwOZABOtudnGsPqEkGZBen1ZCARXd1EqZCZCWCRGYMXEQnW0cwVdZAQlCz2YEog43E12zZC8AmocMWPDit5ve96ZAd2WgrEZBRZABD7RSMOd8BSGz2o4yuPPb5QiihZAqBVmreexpRP2wWztgZDZD';
             $urlApi = $link.$version.$phoneId.'/messages';
-            // Cuerpo
+            // Cuerpo envío
             $payload = [
-                'messaging_product' => '',
+                'messaging_product' => 'whatsapp',
                 'to' => '51923888604',
                 'type' => 'template',
                 'template' => [
@@ -50,7 +50,6 @@ class MessengerController extends Controller
                 ]
             ];
 
-            
             // Excecute Api WSP
             $dataMsg = Http::withToken($token)->post($urlApi,$payload)->throw()->json();
             dd($dataMsg);
